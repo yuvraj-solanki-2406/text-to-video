@@ -1,0 +1,5 @@
+node_modules
+__pycache__
+Frontend/node_modules
+.env
+resources/videos
