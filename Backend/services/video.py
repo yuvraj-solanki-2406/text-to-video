@@ -19,6 +19,7 @@ load_dotenv()
 pexel_api = os.getenv("PEXEL_API")
 ASSEMBLY_AI_API_KEY = os.getenv("ASSEMBLY_AI")
 
+# find relvant video from pixel
 def find_relevant_videos(keywords: list, num_videos=5, api_key=pexel_api):
     query = "".join(keywords)
     

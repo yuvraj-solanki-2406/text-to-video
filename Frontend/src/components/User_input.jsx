@@ -2,13 +2,13 @@ import React from 'react'
 import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
-toast.configure();
+// toast.configure()
 
 const create_video_script = async () => {
     let ipt_data = document.getElementById("user_input").value
     if (ipt_data.length > 0) {
         try {
-            let res = await fetch("localhost:3000", {
+            let res = await fetch("http://127.0.0.1:6200", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -23,8 +23,7 @@ const create_video_script = async () => {
             console.log(error)
         }
     } else {
-        alert("Please enter proper prompt");
-        toast("Please enter proper prompt")
+        toast.warning("Please enter proper prompt")
     }
 }
 

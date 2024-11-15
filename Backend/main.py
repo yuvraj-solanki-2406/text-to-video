@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
-import text
-import audio
-import video
+from services import text
+from services import audio
+from services import video
 import json
 from moviepy.editor import AudioFileClip
 
@@ -65,6 +65,14 @@ def create_script():
     except Exception as e:
         return f"Invalid user input {e}"
     
+    
+# Create script
+@app.route("/create_script", methods=['POST'])
+def create_scipt():
+    ipt = request.json.get("user_input")
+    
+    script_content = text.generate_textual_content(user_input=ipt)
+    return jsonify({"script": script_content, "status": 200})
 
 
 app.run(port=6200, debug=True)
