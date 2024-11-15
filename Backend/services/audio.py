@@ -13,6 +13,8 @@ def create_audio_file(script: str):
     unique_num = uuid.uuid4()
     audio_file_path = os.path.join(audio_files_path, f"audio_{unique_num}.mp3")
 
-    tts.save(audio_file_path)
-    
-    return True, unique_num, audio_file_path
+    try:
+        tts.save(audio_file_path)
+        return True, unique_num, audio_file_path
+    except:
+        return False, unique_num, "File not created"

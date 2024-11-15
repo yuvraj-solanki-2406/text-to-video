@@ -189,4 +189,6 @@ def generate_final_video(audio, com_video, subtitles, subtitles_position, text_c
 
     result.write_videofile(f"resources/videos/output_{uuid.uuid4()}.mp4", threads=n_threads or 2)
 
-    return colored(f"File created output_{uuid.uuid4()}.mp4", color="green")
+    print(f"File created output_{uuid.uuid4()}.mp4", color="green")
+    
+    return f"output_{uuid.uuid4()}.mp4"
